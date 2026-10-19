@@ -165,3 +165,34 @@ reference/        # Physical measurements and annotated test-fit notes
 ```
 
 **License:** Not yet specified. No license is implied; add one when you're ready to share reuse rights.
+
+## 9. Starter faceplate CAD parts (0.5U through 2U)
+
+The repository includes **8 flat faceplate templates**, each available as:
+
+- [`cad/scad/`](cad/scad/) — editable parametric **OpenSCAD** solids with plate thickness and rectangular mounting cutouts.
+- [`cad/dxf/`](cad/dxf/) — **DXF 2D face profiles** and slot outlines for **Autodesk Inventor sketch import**, extrusion and subsequent feature editing.
+
+| Design | Plate height (mm) | Hole centers Y from panel bottom (mm) | Number of slots |
+| --- | ---: | --- | ---: |
+| 0.5U standard | 21.225 | 5.850 | 2 |
+| 0.5U +0.5U shift | 21.225 | 15.375 | 2 |
+| 1U standard | 43.450 | 5.850, 37.600 | 4 |
+| 1U +0.5U shift | 43.450 | 15.375, 28.075 | 4 |
+| 1.5U standard | 65.675 | 5.850, 50.300 | 4 |
+| 1.5U +0.5U shift | 65.675 | 15.375, 59.825 | 4 |
+| 2U standard | 87.900 | 5.850, 82.050 | 4 |
+| 2U +0.5U shift | 87.900 | 15.375, 72.525 | 4 |
+
+All profiles are **250 mm wide**, **3 mm thick in SCAD**, and contain **10 mm (X) × 6 mm (Y)** rectangular slots at X = 6.74 mm and 243.26 mm. A half-U-shifted design means its allotted vertical space starts **22.225 mm higher relative to the rack full-U grid**, not that the physical plate grows or that holes are regularly spaced.
+
+**Design limitation:** The 0.5U starters have one slot per side (2 total) because two separate standard rack holes do not necessarily fit a 0.5U panel. They do **not** replicate the four-slot Tecmojo 0.5U panels. That product-specific layout still needs physical measurement. All provisional X locations and the shifted vertical hole selections must be **test-fit before loading equipment**.
+
+### Inventor workflow
+
+1. Download the DXF for the intended height and mounting offset.
+2. Open/import its geometry into an Inventor part sketch (millimeters).
+3. Extrude the **outer panel profile 3 mm**, then cut each slot **Through All** using the imported profiles (or recreate the slots with rectangle geometry).
+4. Save the result as a native `.ipt` and use it as your editable master for device-specific modifications.
+5. Alternatively, open a STEP model from the separately generated ZIP package to import a 3D solid into Inventor. STEP is an editable solid, but it **does not preserve native Inventor sketch/feature history**.
+
