@@ -1,6 +1,6 @@
 # Homelab Rack CAD Standard
 
-**Version 1.0 · 2026-10-18**  
+**Version 1.1 · 2026-10-19**  
 Custom Autodesk Inventor design convention for a **DeskPi RackMate TL1 10-inch, 10U rack**.
 
 > This is a **personal fabrication standard**, not an official DeskPi specification or a claim of universal EIA panel dimensions. Actual rail-hole coordinates and mounting fit must be checked against the physical rack or a manufacturer CAD drawing before fabricating load-bearing parts.
@@ -12,6 +12,16 @@ Custom Autodesk Inventor design convention for a **DeskPi RackMate TL1 10-inch, 
 - Keep the **rack pitch** separate from the **fabricated panel size**. One rack unit (1U) is **44.45 mm (1.75 in)** tall.
 - A physical panel is deliberately smaller than its allocated vertical envelope to avoid clashes with adjacent panels.
 - Place successive assemblies on the rack's **44.45 mm/U grid**; do not stack them using finished faceplate heights.
+
+## TL1 verified faceplate width and 2U reference
+
+- **250 mm** is the outside faceplate width for DeskPi RackMate TL1-compatible 1U and 2U blank panels. It is NOT the inner rack width or rail hole pitch.
+- DeskPi's 2U blank panel is **250 × 88 mm** (width × height). The planned waterjet-cut four-node frame should start at **250 × 88 × 3 mm** (W × H × T, aluminum), subject to physical fit checks.
+- The existing custom parametric 2U template is **87.900 mm high**, deliberately 0.1 mm shorter than DeskPi's nominal 88 mm 2U panel. Do not mistake this custom value for the manufacturer's nominal size.
+- The horizontal rack mounting hole pitch of **236.52 mm** is provisional based on a third-party model. Measure on the physical TL1 before machining.
+- Continue to use the custom 10 × 6 mm horizontal rack slots; verify actual hole alignment, fastener bearing area and edge margins (only 1.74 mm outside ligament at provisional X positions).
+- Waterjet cutting does not produce threads: cut appropriate pilots and finish-drill/tap M3 × 0.5, or use captive nuts.
+- Sources: [DeskPi 2U blank panel](https://wiki.deskpi.com/rackmate/accessories/dp-0051-2u-blank-panel/) and [DeskPi 1U blank panel](https://wiki.deskpi.com/rackmate/accessories/dp-0032-1u-blank-panel/).
 
 ## 2. Master plate dimensions
 
